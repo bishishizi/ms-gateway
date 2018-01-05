@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ms-gateway
+server:
+  port: 8086
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+#设置路由
+zuul:
+  routes:
+    ms-client:
+      path: /ms-client/**
+      serviceId: ms-client
+#      url: http://localhost:8087
+#      url: /ms-client
+# 不自动创建路由的服务
+
+#  头信息
+#      custom-sensitive-headers: true
